@@ -175,11 +175,19 @@
 				>
 			</File>
 			<File
-				RelativePath=".\InputTokenizer.cpp"
+				RelativePath=".\CommandLineInputReader.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\PostfixConverter.cpp"
+				RelativePath=".\OperandItem.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\OperatorItem.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\PostfixEvaluator.cpp"
 				>
 			</File>
 		</Filter>
@@ -189,15 +197,39 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\InputTokenizer.h"
+				RelativePath=".\Calculator.h"
 				>
 			</File>
 			<File
-				RelativePath=".\IntermediateFormConverter.h"
+				RelativePath=".\CommandLineInputReader.h"
 				>
 			</File>
 			<File
-				RelativePath=".\PostfixConverter.h"
+				RelativePath=".\Evaluator.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Expression.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Item.h"
+				>
+			</File>
+			<File
+				RelativePath=".\OperandItem.h"
+				>
+			</File>
+			<File
+				RelativePath=".\OperatorItem.h"
+				>
+			</File>
+			<File
+				RelativePath=".\PostfixEvaluator.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Reader.h"
 				>
 			</File>
 		</Filter>
