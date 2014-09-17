@@ -4,5 +4,5 @@ using namespace std;
 
 float PostfixEvaluator::evaluateExpression( vector<Item> )
 {
-	return 44.79;
+	return (float)44.7;
 }
