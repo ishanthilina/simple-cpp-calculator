@@ -3,6 +3,8 @@
 #include "Calculator.h"
 #include "Expression.h"
 #include "BinaryExpression.h"
+#include "PostfixEvaluator.h"
+#include "Evaluator.h"
 
 
 
@@ -13,10 +15,12 @@ void Calculator::run()
 	Reader * inputReader = new CommandLineInputReader();
 	string expression = inputReader->getNextExpression();
 
-	Expression * bExpression=new BinaryExpression(expression);
-	//bExpression->evaluate();
+	Evaluator * evaluator = new PostfixEvaluator();
 
-	//cout<<endl<<expression<<endl;
+	Expression * bExpression=new BinaryExpression(expression,*evaluator);
+	float result = bExpression->evaluate();
+
+	cout<<endl<<result<<endl;
 
 
 	int k;

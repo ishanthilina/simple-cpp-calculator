@@ -6,7 +6,7 @@
 #include "Evaluator.h"
 
 using namespace std;
-class PostfixEvaluator
+class PostfixEvaluator : public Evaluator
 {
 public:
 	float evaluateExpression(vector<Item>);

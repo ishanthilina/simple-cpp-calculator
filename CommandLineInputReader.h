@@ -2,6 +2,7 @@
 #define COMMANDLINEINPUTREADER_H
 
 #include <string>
+#include <iostream>
 #include "Reader.h"
 
 using namespace std;

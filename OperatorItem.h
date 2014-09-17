@@ -1,7 +1,6 @@
 #ifndef OPERATORITEM_H
 #define OPERATORITEM_H
 
-#include <string>
 #include "Item.h"
 
 using namespace std;
