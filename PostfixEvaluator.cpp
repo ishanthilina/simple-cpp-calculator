@@ -5,7 +5,7 @@ using namespace std;
 float PostfixEvaluator::evaluateExpression( vector<Item*> items )
 {
 	items = convertInfixToPostfix(items);
-	return (float)44.7;
+	return (float)evaluatePostfixNotation(items);
 }
 
 vector<Item*> PostfixEvaluator::convertInfixToPostfix( vector<Item*> tokens)
@@ -72,4 +72,75 @@ vector<Item*> PostfixEvaluator::convertInfixToPostfix( vector<Item*> tokens)
 
 	return postfixVector;
 }
+
+float PostfixEvaluator::evaluatePostfixNotation( vector<Item*> postfixVector)
+{
+	stack<OperandItem*> operandStack;
+
+	for (std::vector<Item*>::iterator it = postfixVector.begin() ; it != postfixVector.end(); ++it){
+
+		//if the token is an operator
+		if((*it)->isOperator()){
+			OperatorItem* item= static_cast<OperatorItem*>((*it));
+
+			//get the values
+
+			if(operandStack.empty()){
+				//should throw an exception
+			}
+
+			//todo - delete after popping
+			
+			OperandItem * opItem1=operandStack.top();
+			float value1=opItem1->getValue();
+			operandStack.pop();
+
+			if(operandStack.empty()){
+				//should throw an exception
+			}
+
+			OperandItem * opItem2=operandStack.top();
+			float value2=opItem2->getValue();
+			operandStack.pop();
+
+			//evaluate using the operator
+			float result;
+			//todo - move in to operatorItem
+			string operatorString=item->getOperator();
+			if (operatorString.compare("+")==0)
+			{
+				result=value2+value1;
+			} else if (operatorString.compare("-")==0)
+			{
+				result=value2-value1;
+			} else if (operatorString.compare("*")==0)
+			{
+				result=value2*value1;
+			}
+			else if (operatorString.compare("/")==0)
+			{
+				result=value2/value1;
+			}
+
+			OperandItem * opItem=new OperandItem(result);
+			operandStack.push(opItem);
+		}
+		//if the token is an operand
+		else{
+			OperandItem* value= static_cast<OperandItem*>((*it));
+			operandStack.push(value);
+		}
+		}
+
+		OperandItem * returnItem = operandStack.top();
+		return returnItem->getValue();
+
+	}
+
+		
+
+	
+		
+
+//}
 

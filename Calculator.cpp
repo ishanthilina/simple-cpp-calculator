@@ -12,21 +12,36 @@ using namespace std;
 
 void Calculator::run()
 {
-	Reader * inputReader = new CommandLineInputReader();
-	string expression = inputReader->getNextExpression();
+	Reader * inputReader;
+	Evaluator * evaluator;
+	Expression * bExpression;
+	while (true)
+	{
+		inputReader = new CommandLineInputReader();
+		string expression = inputReader->getNextExpression();
 
-	Evaluator * evaluator = new PostfixEvaluator();
+		if (expression.compare("quit")==0)
+		{
+			return;
+		}
 
-	Expression * bExpression=new BinaryExpression(expression,*evaluator);
-	float result = bExpression->evaluate();
+		evaluator = new PostfixEvaluator();
 
-	cout<<endl<<result<<endl;
+		bExpression=new BinaryExpression(expression,*evaluator);
+		float result = bExpression->evaluate();
+
+		cout<<endl<<"Result: "<<result<<endl;
+	}
+	
+
+	/*
 
 
 	int k;
-	cin >> k;
+	cin >> k;*/
 
 	delete inputReader;
+	delete evaluator;
 	delete bExpression;
 }
 

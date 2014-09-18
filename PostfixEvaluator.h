@@ -7,6 +7,7 @@
 #include "Item.h"
 #include "Evaluator.h"
 #include "OperatorItem.h"
+#include "OperandItem.h"
 
 using namespace std;
 class PostfixEvaluator : public Evaluator
@@ -16,5 +17,6 @@ public:
 protected:
 private:
 	vector<Item*> convertInfixToPostfix(vector<Item*>);
+	float evaluatePostfixNotation(vector<Item*>);
 };
 #endif
