@@ -20,7 +20,6 @@ vector<Item*> PostfixEvaluator::convertInfixToPostfix( vector<Item*> tokens)
 		//if this is an operator
 		if((*it)->isOperator()){
 			OperatorItem* item= static_cast<OperatorItem*>((*it));
-			//OperatorItem* item= ((OperatorItem*)(&(*it)));
 
 			//if the stack is empty
 			if(operatorStack.empty()){
@@ -70,7 +69,7 @@ vector<Item*> PostfixEvaluator::convertInfixToPostfix( vector<Item*> tokens)
 		operatorStack.pop();
 	}
 
-	for (std::vector<Item*>::iterator it = postfixVector.begin() ; it != postfixVector.end(); ++it)
+	/*for (std::vector<Item*>::iterator it = postfixVector.begin() ; it != postfixVector.end(); ++it)
 	{
 		if((*it)->isOperator()){
 			OperatorItem* item= static_cast<OperatorItem*>((*it));
@@ -81,7 +80,7 @@ vector<Item*> PostfixEvaluator::convertInfixToPostfix( vector<Item*> tokens)
 			OperandItem* value= static_cast<OperandItem*>((*it));
 			cout<<" "<<value->getValue();
 		}
-	}
+	}*/
 
 	return postfixVector;
 }
@@ -99,18 +98,18 @@ float PostfixEvaluator::evaluatePostfixNotation( vector<Item*> postfixVector)
 			//get the values
 
 			if(operandStack.empty()){
-				//should throw an exception
+				throw InvalidExpressionException("Cannot solve empty expression");
 			}
-
-			//todo - delete after popping
 			
 			OperandItem * opItem1=operandStack.top();
 			float value1=opItem1->getValue();
 			operandStack.pop();
 
 			if(operandStack.empty()){
-				//should throw an exception
+				throw InvalidExpressionException("Not enough operands to solve the expression");
+
 			}
+
 
 			OperandItem * opItem2=operandStack.top();
 			float value2=opItem2->getValue();
@@ -146,14 +145,12 @@ float PostfixEvaluator::evaluatePostfixNotation( vector<Item*> postfixVector)
 		}
 
 		OperandItem * returnItem = operandStack.top();
+		//empty the stack
+		operandStack.pop();
+		if(!operandStack.empty()){
+			throw InvalidExpressionException("Not a properly formatted expression.");
+		}
+
 		return returnItem->getValue();
 
 	}
-
-		
-
-	
-		
-
-//}
-

@@ -8,6 +8,7 @@
 #include "Evaluator.h"
 #include "OperatorItem.h"
 #include "OperandItem.h"
+#include "InvalidExpressionException.h"
 
 using namespace std;
 class PostfixEvaluator : public Evaluator

@@ -16,8 +16,9 @@ using namespace std;
 class BinaryExpression : public Expression
 {
 public:
-	float evaluate();
+	float evaluate() throw (InvalidExpressionException);
 	BinaryExpression(string,Evaluator & expressionEvaluator);
+	~BinaryExpression();
 protected:
 	vector<Item*> tokens;
 	Evaluator & evaluator;

@@ -27,22 +27,34 @@ void Calculator::run()
 
 		evaluator = new PostfixEvaluator();
 
-		bExpression=new BinaryExpression(expression,*evaluator);
-		float result = bExpression->evaluate();
-
-		cout<<endl<<"Result: "<<result<<endl;
+		
+		try
+		{
+			bExpression=new BinaryExpression(expression,*evaluator);
+			float result = bExpression->evaluate();
+			cout<<endl<<"Result: "<<result<<endl;
+		}
+		catch (InvalidExpressionException& e)
+		{
+			cout << e.what() << '\n';
+		}
+		
 	}
-	
 
-	/*
+	if (inputReader!=NULL)
+	{
+		delete inputReader;
+	}
 
+	if (evaluator!=NULL)
+	{
+		delete evaluator;
+	}
 
-	int k;
-	cin >> k;*/
-
-	delete inputReader;
-	delete evaluator;
-	delete bExpression;
+	if (bExpression!=NULL)
+	{
+		delete bExpression;
+	}
 }
 
 

@@ -22,8 +22,17 @@ BinaryExpression::BinaryExpression( string expression, Evaluator & expressionEva
 	evaluator = expressionEvaluator;
 }
 
-float BinaryExpression::evaluate()
+float BinaryExpression::evaluate() throw (InvalidExpressionException)
 {
 	return evaluator.evaluateExpression(tokens);
 	 
+}
+
+BinaryExpression::~BinaryExpression()
+{
+	//GC the tokens vector
+	for (std::vector<Item*>::iterator it = tokens.begin() ; it != tokens.end(); ++it)
+	{
+		delete &(*it);
+	}
 }

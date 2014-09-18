@@ -2,7 +2,9 @@
 #define OPERANDITEM_H
 
 #include "Item.h"
+#include "InvalidExpressionException.h"
 #include <string>
+#include <sstream>
 
 using namespace std;
 

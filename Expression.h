@@ -2,6 +2,7 @@
 #define EXPRESSION_H
 
 #include <vector>
+#include "InvalidExpressionException.h"
 
 using namespace std;
 

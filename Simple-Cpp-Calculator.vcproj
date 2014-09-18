@@ -183,6 +183,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\InvalidExpressionException.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\OperandItem.cpp"
 				>
 			</File>
@@ -218,6 +222,10 @@
 			</File>
 			<File
 				RelativePath=".\Expression.h"
+				>
+			</File>
+			<File
+				RelativePath=".\InvalidExpressionException.h"
 				>
 			</File>
 			<File
