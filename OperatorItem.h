@@ -9,7 +9,7 @@ class OperatorItem : public Item
 public:
 	OperatorItem(string);
 	string getOperator() const;
-	bool operator <(const OperatorItem &rhs);
+	bool operator <=(const OperatorItem &rhs);
 
 protected:
 private:

@@ -34,7 +34,7 @@ vector<Item*> PostfixEvaluator::convertInfixToPostfix( vector<Item*> tokens)
 				//If topStack has higher precedence
 				
 
-					while (*item<*topStack)
+					while (*item<=*topStack)
 					{
 						//remove the top item
 						operatorStack.pop();
@@ -68,6 +68,19 @@ vector<Item*> PostfixEvaluator::convertInfixToPostfix( vector<Item*> tokens)
 	while(!(operatorStack.empty())){
 		postfixVector.push_back(operatorStack.top());
 		operatorStack.pop();
+	}
+
+	for (std::vector<Item*>::iterator it = postfixVector.begin() ; it != postfixVector.end(); ++it)
+	{
+		if((*it)->isOperator()){
+			OperatorItem* item= static_cast<OperatorItem*>((*it));
+			cout<<" "<<item->getOperator();
+
+		}
+		else{
+			OperandItem* value= static_cast<OperandItem*>((*it));
+			cout<<" "<<value->getValue();
+		}
 	}
 
 	return postfixVector;
