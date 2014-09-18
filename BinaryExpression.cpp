@@ -9,11 +9,13 @@ BinaryExpression::BinaryExpression( string expression, Evaluator & expressionEva
 	
 		//check for operators
 		if(token.compare("+")==0 || token.compare("-")==0 || token.compare("*")==0 || token.compare("/")==0){
-			tokens.push_back(OperatorItem(token));
+			OperatorItem * opItem=new OperatorItem(token);
+			tokens.push_back(opItem);
 		}
 		//else add as an operand
 		else{
-			tokens.push_back(OperandItem(token));
+			OperandItem * opItem=new OperandItem(token);
+			tokens.push_back(opItem);
 		}
 	}
 
@@ -22,5 +24,6 @@ BinaryExpression::BinaryExpression( string expression, Evaluator & expressionEva
 
 float BinaryExpression::evaluate()
 {
-	return 34.5;
+	return evaluator.evaluateExpression(tokens);
+	 
 }

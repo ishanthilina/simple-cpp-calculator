@@ -19,7 +19,7 @@ public:
 	float evaluate();
 	BinaryExpression(string,Evaluator & expressionEvaluator);
 protected:
-	vector<Item> tokens;
+	vector<Item*> tokens;
 	Evaluator & evaluator;
 private:
 };

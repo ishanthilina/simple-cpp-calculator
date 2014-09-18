@@ -8,7 +8,8 @@ class OperatorItem : public Item
 {
 public:
 	OperatorItem(string);
-	string getOperator();
+	string getOperator() const;
+	bool operator <(const OperatorItem &rhs);
 
 protected:
 private:

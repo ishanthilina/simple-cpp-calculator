@@ -9,7 +9,7 @@ using namespace std;
 class Evaluator
 {
 public:
-	virtual float evaluateExpression(vector<Item>)=0;
+	virtual float evaluateExpression(vector<Item*>)=0;
 protected:
 private:
 };
