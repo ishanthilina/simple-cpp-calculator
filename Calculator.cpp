@@ -36,7 +36,7 @@ void Calculator::run()
 		}
 		catch (InvalidExpressionException& e)
 		{
-			cout << e.what() << '\n';
+			cout << endl << e.what() << '\n';
 		}
 		
 	}
