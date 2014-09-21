@@ -100,15 +100,28 @@ void CsimplecppcalculatorDlg::OnBnClickedButton1()
 	std::string expressionS(intermedieteCStr);
 	reader->setExpression(expressionS);
 
-	float fNumber = calc->run();
-	std::ostringstream osstream;
-	osstream << fNumber;
+	try
+		{
+			float fNumber = calc->run();
+			std::ostringstream osstream;
+			osstream << fNumber;
 
-	std::string stringedFloat(osstream.str());
+			std::string stringedFloat(osstream.str());
 
-	CA2T lpcString(stringedFloat.c_str());
+			CA2T lpcString(stringedFloat.c_str());
 
-	GetDlgItem(IDC_EDIT2)->SetWindowText(lpcString);
+			GetDlgItem(IDC_EDIT2)->SetWindowText(lpcString);
+			
+		}
+		catch (InvalidExpressionException& e)
+		{
+			CA2T lpcString(e.what());
+
+			GetDlgItem(IDC_EDIT2)->SetWindowText(lpcString);
+		}
+
+
+	
 
 
 }

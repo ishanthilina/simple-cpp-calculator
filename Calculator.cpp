@@ -30,16 +30,16 @@ float Calculator::run()
 		//evaluator = new DualStackPostfixEvaluator();
 
 		
-		try
-		{
+		/*try
+		{*/
 			bExpression=new BinaryExpressionWithParenthesis(expression,*evaluator);
 			result = bExpression->evaluate();
 			cout<<endl<<"Result: "<<result<<endl;
-		}
-		catch (InvalidExpressionException& e)
+		//}
+		/*catch (InvalidExpressionException& e)
 		{
 			cout << endl << e.what() << '\n';
-		}
+		}*/
 
 		if (bExpression!=NULL)
 		{
