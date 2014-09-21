@@ -1,16 +1,23 @@
 #ifndef CALCULATOR_H
 #define CALCULATOR_H
 
+#include "stdafx.h"
 #include <string>
+#include "Reader.h"
+#include "Evaluator.h"
 
-#include "CommandLineInputReader.h"
 
 class Calculator
 {
 private:
+	Reader * inputReader;
+	Evaluator * evaluator;
+	
 protected:
 public:
-	void run();
+	float run();
+	Calculator(Reader *, Evaluator *);
+	~Calculator();
 };
 
 #endif

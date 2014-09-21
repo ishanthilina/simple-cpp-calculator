@@ -1,6 +1,7 @@
 #ifndef READER_H
 #define READER_H
 
+#include "stdafx.h"
 #include <string>
 
 using namespace std;

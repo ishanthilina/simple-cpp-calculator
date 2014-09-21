@@ -1,6 +1,7 @@
 #ifndef EVALUATOR_H
 #define EVALUATOR_H
 
+#include "stdafx.h"
 #include <vector>
 #include "Item.h"
 

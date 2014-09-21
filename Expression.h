@@ -1,6 +1,7 @@
 #ifndef EXPRESSION_H
 #define EXPRESSION_H
 
+#include "stdafx.h"
 #include <vector>
 #include "InvalidExpressionException.h"
 

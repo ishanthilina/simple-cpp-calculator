@@ -1,6 +1,7 @@
 #ifndef BINARYEXPRESSIONWITHPARENTHESIS_H
 #define BINARYEXPRESSIONWITHPARENTHESIS_H
 
+#include "stdafx.h"
 #include <string>
 #include <iostream>
 #include <sstream>

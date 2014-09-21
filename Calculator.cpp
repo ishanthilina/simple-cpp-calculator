@@ -12,37 +12,49 @@
 
 using namespace std;
 
-void Calculator::run()
+float Calculator::run()
 {
-	Reader * inputReader;
-	Evaluator * evaluator;
-	Expression * bExpression;
-	while (true)
-	{
-		inputReader = new CommandLineInputReader();
+	float result;
+	//while (true)
+	//{
+		Expression * bExpression;
+
+		//inputReader = new CommandLineInputReader();
 		string expression = inputReader->getNextExpression();
 
 		if (expression.compare("quit")==0)
 		{
-			return;
+			return 0;
 		}
 
-		evaluator = new DualStackPostfixEvaluator();
+		//evaluator = new DualStackPostfixEvaluator();
 
 		
 		try
 		{
 			bExpression=new BinaryExpressionWithParenthesis(expression,*evaluator);
-			float result = bExpression->evaluate();
+			result = bExpression->evaluate();
 			cout<<endl<<"Result: "<<result<<endl;
 		}
 		catch (InvalidExpressionException& e)
 		{
 			cout << endl << e.what() << '\n';
 		}
-		
-	}
 
+		if (bExpression!=NULL)
+		{
+			delete bExpression;
+		}
+
+		return result;
+		
+	//}
+
+	
+}
+
+Calculator::~Calculator()
+{
 	if (inputReader!=NULL)
 	{
 		delete inputReader;
@@ -53,15 +65,14 @@ void Calculator::run()
 		delete evaluator;
 	}
 
-	if (bExpression!=NULL)
-	{
-		delete bExpression;
-	}
+	
 }
 
 
-int main(){
 
-	Calculator calc;
-	calc.run();
+Calculator::Calculator( Reader * reader, Evaluator * evaluator)
+{
+	this->inputReader=reader;
+	this->evaluator=evaluator;
 }
+

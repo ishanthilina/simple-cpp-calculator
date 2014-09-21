@@ -1,6 +1,7 @@
 #ifndef DUALSTACKPOSTFIXEVALUATOR_H
 #define DUALSTACKPOSTFIXEVALUATOR_H
 
+#include "stdafx.h"
 #include <vector>
 #include <stack>
 #include <iostream>
