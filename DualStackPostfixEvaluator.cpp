@@ -26,56 +26,12 @@ float DualStackPostfixEvaluator::evaluateExpression( vector<Item*> tokens)
 				string operatorStackTop=operatorStack.top()->getOperator();
 				while(!operatorStack.empty()&& operatorStackTop.compare("(")!=0){
 
-					//get the top of the operator stack
-
 					//remove the top item
 					operatorStack.pop();
 
 					//compute using the operator
 
-					//get the values
-
 					evaluateOperator(operatorStackTop,&operandStack);
-
-					//if(operandStack.empty()){
-					//	throw InvalidExpressionException("Cannot solve empty expression");
-					//}
-
-					//OperandItem * opItem1=operandStack.top();
-					//float value1=opItem1->getValue();
-					//operandStack.pop();
-
-					//if(operandStack.empty()){
-					//	throw InvalidExpressionException("Not enough operands to solve the expression");
-
-					//}
-
-
-					//OperandItem * opItem2=operandStack.top();
-					//float value2=opItem2->getValue();
-					//operandStack.pop();
-
-					////evaluate using the operator
-					//float result;
-					////todo - move in to operatorItem
-
-					//if (operatorStackTop.compare("+")==0)
-					//{
-					//	result=value2+value1;
-					//} else if (operatorStackTop.compare("-")==0)
-					//{
-					//	result=value2-value1;
-					//} else if (operatorStackTop.compare("*")==0)
-					//{
-					//	result=value2*value1;
-					//}
-					//else if (operatorStackTop.compare("/")==0)
-					//{
-					//	result=value2/value1;
-					//}
-
-					//OperandItem * opItem=new OperandItem(result);
-					//operandStack.push(opItem);
 
 					//get the next oprator stack item
 					operatorStackTop=operatorStack.top()->getOperator();
@@ -116,50 +72,7 @@ float DualStackPostfixEvaluator::evaluateExpression( vector<Item*> tokens)
 					
 					//compute using the operator
 
-					//get the values
-
 					evaluateOperator(topStack->getOperator(),&operandStack);
-
-					//if(operandStack.empty()){
-					//	throw InvalidExpressionException("Cannot solve empty expression");
-					//}
-
-					//OperandItem * opItem1=operandStack.top();
-					//float value1=opItem1->getValue();
-					//operandStack.pop();
-
-					//if(operandStack.empty()){
-					//	throw InvalidExpressionException("Not enough operands to solve the expression");
-
-					//}
-
-
-					//OperandItem * opItem2=operandStack.top();
-					//float value2=opItem2->getValue();
-					//operandStack.pop();
-
-					////evaluate using the operator
-					//float result;
-					////todo - move in to operatorItem
-					//operatorString=topStack->getOperator();
-					//if (operatorString.compare("+")==0)
-					//{
-					//	result=value2+value1;
-					//} else if (operatorString.compare("-")==0)
-					//{
-					//	result=value2-value1;
-					//} else if (operatorString.compare("*")==0)
-					//{
-					//	result=value2*value1;
-					//}
-					//else if (operatorString.compare("/")==0)
-					//{
-					//	result=value2/value1;
-					//}
-
-					//OperandItem * opItem=new OperandItem(result);
-					//operandStack.push(opItem);
-
 
 					//stop the loop if the stack is empty
 					if(operatorStack.empty()){
@@ -193,46 +106,6 @@ float DualStackPostfixEvaluator::evaluateExpression( vector<Item*> tokens)
 
 		evaluateOperator(op,&operandStack);
 
-		//if(operandStack.empty()){
-		//	throw InvalidExpressionException("Cannot solve empty expression");
-		//}
-
-		//OperandItem * opItem1=operandStack.top();
-		//float value1=opItem1->getValue();
-		//operandStack.pop();
-
-		//if(operandStack.empty()){
-		//	throw InvalidExpressionException("Not enough operands to solve the expression");
-
-		//}
-
-
-		//OperandItem * opItem2=operandStack.top();
-		//float value2=opItem2->getValue();
-		//operandStack.pop();
-
-		////evaluate using the operator
-		//float result;
-		////todo - move in to operatorItem
-		////string operatorString=item->getOperator();
-		//if (op.compare("+")==0)
-		//{
-		//	result=value2+value1;
-		//} else if (op.compare("-")==0)
-		//{
-		//	result=value2-value1;
-		//} else if (op.compare("*")==0)
-		//{
-		//	result=value2*value1;
-		//}
-		//else if (op.compare("/")==0)
-		//{
-		//	result=value2/value1;
-		//}
-
-		//OperandItem * opItem=new OperandItem(result);
-		//operandStack.push(opItem);
-
 	}
 	
 
@@ -263,15 +136,12 @@ void DualStackPostfixEvaluator::evaluateOperator( string operation,stack<Operand
 
 	}
 
-
 	OperandItem * opItem2=operandStack->top();
 	float value2=opItem2->getValue();
 	operandStack->pop();
 
 	//evaluate using the operator
 	float result;
-	//todo - move in to operatorItem
-	//string operatorString=item->getOperator();
 	if (operation.compare("+")==0)
 	{
 		result=value2+value1;
