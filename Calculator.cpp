@@ -5,6 +5,8 @@
 #include "BinaryExpression.h"
 #include "PostfixEvaluator.h"
 #include "Evaluator.h"
+#include "DualStackPostfixEvaluator.h"
+#include "BinaryExpressionWithParenthesis.h"
 
 
 
@@ -25,12 +27,12 @@ void Calculator::run()
 			return;
 		}
 
-		evaluator = new PostfixEvaluator();
+		evaluator = new DualStackPostfixEvaluator();
 
 		
 		try
 		{
-			bExpression=new BinaryExpression(expression,*evaluator);
+			bExpression=new BinaryExpressionWithParenthesis(expression,*evaluator);
 			float result = bExpression->evaluate();
 			cout<<endl<<"Result: "<<result<<endl;
 		}

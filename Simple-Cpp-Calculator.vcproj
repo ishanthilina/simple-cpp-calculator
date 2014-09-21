@@ -175,11 +175,19 @@
 				>
 			</File>
 			<File
+				RelativePath=".\BinaryExpressionWithParenthesis.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Calculator.cpp"
 				>
 			</File>
 			<File
 				RelativePath=".\CommandLineInputReader.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\DualStackPostfixEvaluator.cpp"
 				>
 			</File>
 			<File
@@ -209,11 +217,19 @@
 				>
 			</File>
 			<File
+				RelativePath=".\BinaryExpressionWithParenthesis.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Calculator.h"
 				>
 			</File>
 			<File
 				RelativePath=".\CommandLineInputReader.h"
+				>
+			</File>
+			<File
+				RelativePath=".\DualStackPostfixEvaluator.h"
 				>
 			</File>
 			<File
