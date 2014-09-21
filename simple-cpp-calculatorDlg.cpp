@@ -100,15 +100,15 @@ void CsimplecppcalculatorDlg::OnBnClickedButton1()
 	std::string expressionS(intermedieteCStr);
 	reader->setExpression(expressionS);
 
-	float f = calc->run();
-	std::ostringstream ss;
-	ss << f;
+	float fNumber = calc->run();
+	std::ostringstream osstream;
+	osstream << fNumber;
 
-	std::string ff(ss.str());
+	std::string stringedFloat(osstream.str());
 
-	CA2T lpcstring(ff.c_str());
+	CA2T lpcString(stringedFloat.c_str());
 
-	GetDlgItem(IDC_EDIT2)->SetWindowText(lpcstring);
+	GetDlgItem(IDC_EDIT2)->SetWindowText(lpcString);
 
 
 }
