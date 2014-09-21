@@ -1,5 +1,6 @@
 #include "OperandItem.h"
 #include <string>
+#include <math.h>
 
 using namespace std;
 
@@ -27,6 +28,7 @@ OperandItem::OperandItem(string valueString)
 	{
 		throw InvalidExpressionException("\""+valueString + "\" is not a valid number");
 	}
-	this->value=f;
+	int precision=3;
+	this->value=floor((f*pow((float)10,precision)+0.5))/pow((float)10,precision);
 	op=false;
 }

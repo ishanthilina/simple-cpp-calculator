@@ -1,4 +1,5 @@
 #include "DualStackPostfixEvaluator.h"
+#include <math.h>
 
 using namespace std;
 
@@ -156,6 +157,10 @@ void DualStackPostfixEvaluator::evaluateOperator( string operation,stack<Operand
 	{
 		result=value2/value1;
 	}
+
+	int precision=3;
+	result=floor((result*pow((float)10,precision)+0.5))/pow((float)10,precision);
+	//result=roundf(result * 100)/100.0;
 
 	OperandItem * opItem=new OperandItem(result);
 	operandStack->push(opItem);
