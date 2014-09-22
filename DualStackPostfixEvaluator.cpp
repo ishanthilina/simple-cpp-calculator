@@ -161,7 +161,7 @@ void DualStackPostfixEvaluator::evaluateOperator( string operation,stack<Operand
 		//throw InvalidExpressionException("Format of the expression is invalid");
 	}
 
-	int precision=3;
+	int precision=5;
 	result=floor((result*pow((float)10,precision)+0.5))/pow((float)10,precision);
 	//result=roundf(result * 100)/100.0;
 

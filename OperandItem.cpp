@@ -28,7 +28,7 @@ OperandItem::OperandItem(string valueString)
 	{
 		throw InvalidExpressionException("\""+valueString + "\" is not a valid number");
 	}
-	int precision=3;
+	int precision=5;
 	this->value=floor((f*pow((float)10,precision)+0.5))/pow((float)10,precision);
 	op=false;
 }
