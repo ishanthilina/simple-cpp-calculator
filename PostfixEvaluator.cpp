@@ -69,19 +69,6 @@ vector<Item*> PostfixEvaluator::convertInfixToPostfix( vector<Item*> tokens)
 		operatorStack.pop();
 	}
 
-	/*for (std::vector<Item*>::iterator it = postfixVector.begin() ; it != postfixVector.end(); ++it)
-	{
-		if((*it)->isOperator()){
-			OperatorItem* item= static_cast<OperatorItem*>((*it));
-			cout<<" "<<item->getOperator();
-
-		}
-		else{
-			OperandItem* value= static_cast<OperandItem*>((*it));
-			cout<<" "<<value->getValue();
-		}
-	}*/
-
 	return postfixVector;
 }
 
@@ -117,7 +104,7 @@ float PostfixEvaluator::evaluatePostfixNotation( vector<Item*> postfixVector)
 
 			//evaluate using the operator
 			float result;
-			//todo - move in to operatorItem
+
 			string operatorString=item->getOperator();
 			if (operatorString.compare("+")==0)
 			{

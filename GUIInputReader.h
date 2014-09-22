@@ -11,12 +11,10 @@ using namespace std;
 class GUIInputReader : public Reader
 {
 public:
-	//GUIInputReader(CWnd* item);
 	string getNextExpression();
 	void setExpression(string expression);
 protected:
 private:
-	//CWnd* item;
 	string expression;
 };
 #endif

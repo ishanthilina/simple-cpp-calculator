@@ -15,41 +15,24 @@ using namespace std;
 float Calculator::run()
 {
 	float result;
-	//while (true)
-	//{
-		Expression * bExpression;
+	Expression * bExpression;
 
-		//inputReader = new CommandLineInputReader();
-		string expression = inputReader->getNextExpression();
+	string expression = inputReader->getNextExpression();
 
-		if (expression.compare("quit")==0)
-		{
-			return 0;
-		}
+	if (expression.compare("quit")==0)
+	{
+		return 0;
+	}
 
-		//evaluator = new DualStackPostfixEvaluator();
+	bExpression=new BinaryExpressionWithParenthesis(expression,*evaluator);
+	result = bExpression->evaluate();
 
-		
-		/*try
-		{*/
-			bExpression=new BinaryExpressionWithParenthesis(expression,*evaluator);
-			result = bExpression->evaluate();
-			cout<<endl<<"Result: "<<result<<endl;
-		//}
-		/*catch (InvalidExpressionException& e)
-		{
-			cout << endl << e.what() << '\n';
-		}*/
+	if (bExpression!=NULL)
+	{
+		delete bExpression;
+	}
 
-		if (bExpression!=NULL)
-		{
-			delete bExpression;
-		}
-
-		return result;
-		
-	//}
-
+	return result;
 	
 }
 
