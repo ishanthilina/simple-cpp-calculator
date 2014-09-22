@@ -1,10 +1,5 @@
 #include "GUIInputReader.h"
 
-//GUIInputReader::GUIInputReader( CWnd* item )
-//{
-//	//this->item=item;
-//}
-
 
 std::string GUIInputReader::getNextExpression()
 {

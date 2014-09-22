@@ -94,6 +94,7 @@ HCURSOR CsimplecppcalculatorDlg::OnQueryDragIcon()
 
 void CsimplecppcalculatorDlg::OnBnClickedButton1()
 {
+	//get the input from editbox
 	CString inputCStr;
 	GetDlgItem(IDC_EDIT1)->GetWindowText(inputCStr);
 	CT2CA intermedieteCStr(inputCStr);
@@ -103,11 +104,11 @@ void CsimplecppcalculatorDlg::OnBnClickedButton1()
 	try
 		{
 			float fNumber = calc->run();
+
+			//convert float to LPCString
 			std::ostringstream osstream;
 			osstream << fNumber;
-
 			std::string stringedFloat(osstream.str());
-
 			CA2T lpcString(stringedFloat.c_str());
 
 			GetDlgItem(IDC_EDIT2)->SetWindowText(lpcString);
@@ -116,7 +117,6 @@ void CsimplecppcalculatorDlg::OnBnClickedButton1()
 		catch (InvalidExpressionException& e)
 		{
 			CA2T lpcString(e.what());
-
 			GetDlgItem(IDC_EDIT2)->SetWindowText(lpcString);
 		}
 
