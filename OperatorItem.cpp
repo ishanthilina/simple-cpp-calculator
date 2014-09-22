@@ -13,11 +13,8 @@ OperatorItem::OperatorItem( string operatorChar )
 
 bool OperatorItem::operator<=( const OperatorItem &rhs )
 {
-	if(operatorChar.compare("+")==0 && (rhs.getOperator().compare("-")==0 || rhs.getOperator().compare("*")==0 || rhs.getOperator().compare("/")==0 )){
+	if((operatorChar.compare("+")==0 || operatorChar.compare("-")==0) && (rhs.getOperator().compare("(")!=0 || rhs.getOperator().compare("(")!=0)){
 		 return true;
-	} 
-	else if(operatorChar.compare("-")==0 && (rhs.getOperator().compare("+")==0 || rhs.getOperator().compare("*")==0 || rhs.getOperator().compare("/")==0 )){
-		return true;
 	} 
 	else if(operatorChar.compare("*")==0 && (rhs.getOperator().compare("*")==0 || rhs.getOperator().compare("/")==0 )){
 		return true;
